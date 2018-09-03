@@ -1,0 +1,7 @@
+org.springframework.context.ApplicationContextInitializer=\
+com.yizhu.initializer.MyApplicationContextInitializer
+
+org.springframework.context.ApplicationListener=\
+com.yizhu.listener.MyApplicationListener
+
+
