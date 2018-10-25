@@ -23,32 +23,6 @@ java相关的一些个人练习实践demo
 
     - demo-springboot-externalized-configuration：外部化配置简单实践
 
-- demo-springcloud
-
-    - demo-springcloud-eureka：
-    
-    - demo-springcloud-zuul：
-    
-    - demo-springcloud-config：
-    
-    - demo-springcloud-bus：
-    
-    - demo-springcloud-hystrix：
-    
-    - demo-springcloud-consul：
-    
-    - demo-springcloud-data-flow：
-    
-    - demo-springcloud-security：
-    
-    - demo-springcloud-zookeeper：
-    
-    - demo-springcloud-stream：
-    
-    - demo-springcloud-ribbon：
-    
-    - demo-springcloud-feign：
-
 - demo-alibaba
 
     - demo-alibaba-nacos：阿里开源配置中心简单实践
