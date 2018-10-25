@@ -1,4 +1,4 @@
-package com.yizhu.java8;
+package com.yizhu.java8.methodreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyCommandLineRunner implements CommandLineRunner, Ordered {
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         System.out.println("自定义CommandLineRunner运行成功！");
     }
 

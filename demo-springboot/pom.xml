@@ -18,6 +18,7 @@
         <module>demo-springboot-jpa</module>
         <module>demo-springboot-quartz</module>
         <module>demo-springboot-webflux</module>
+        <module>demo-springboot-redis</module>
     </modules>
 
 </project>

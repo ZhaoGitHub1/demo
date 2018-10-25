@@ -20,7 +20,7 @@ public class UserServiceTest {
 
     @Test
     public void testGetUser(){
-        System.out.println("查询id为1的用户信息："+userService.findAllById(1));
+        System.out.println("查询id为1的用户信息："+userService.findAllById(1L));
         List<User> users = userService.findAllByUserName("李四");
         users.forEach(user -> System.out.println("查询到用户信息："+user));
     }

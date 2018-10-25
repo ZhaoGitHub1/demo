@@ -37,6 +37,9 @@
     <modules>
         <module>demo-java-basics</module>
         <module>demo-springboot</module>
+        <module>demo-springcloud</module>
+        <module>demo-alibaba</module>
+        <module>demo-others</module>
     </modules>
 
 </project>

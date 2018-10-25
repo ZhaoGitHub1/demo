@@ -25,7 +25,7 @@ public class DemoJob extends QuartzJobBean {
 
 
     @Override
-    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+    protected void executeInternal(JobExecutionContext jobExecutionContext) {
         demoService.doSomething(param1, param2);
     }
 }

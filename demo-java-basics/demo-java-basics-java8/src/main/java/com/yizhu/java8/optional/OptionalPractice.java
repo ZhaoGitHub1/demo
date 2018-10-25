@@ -1,4 +1,4 @@
-package com.yizhu.java8;
+package com.yizhu.java8.optional;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.yizhu.java8;
+package com.yizhu.java8.stream;
 
 import com.yizhu.entity.User;
 
