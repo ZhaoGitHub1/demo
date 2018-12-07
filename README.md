@@ -22,6 +22,8 @@ java相关的一些个人练习实践demo
     - demo-springboot-redis：springboot整合redis简单实践
 
     - demo-springboot-externalized-configuration：外部化配置简单实践
+    
+    - demo-springboot-mongodb：spring-data-mongdo简单实践，带有自定义自增主键
 
 - demo-alibaba
 
