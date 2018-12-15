@@ -19,7 +19,7 @@ public class User {
     @Field
     private String name;
 
-    @ApiModelProperty("年龄")
+    @ApiModelProperty("性别")
     @Field
     private Integer sex;
 

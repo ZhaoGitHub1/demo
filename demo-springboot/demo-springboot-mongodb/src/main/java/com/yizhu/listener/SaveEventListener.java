@@ -19,7 +19,7 @@ import org.springframework.util.ReflectionUtils;
 public class SaveEventListener extends AbstractMongoEventListener<Object> {
  
 	@Autowired
-	private MongoTemplate mongo;
+	private MongoTemplate mongoTemplate;
 
 	@Override
 	public void onBeforeConvert(BeforeConvertEvent<Object> event) {
@@ -46,7 +46,7 @@ public class SaveEventListener extends AbstractMongoEventListener<Object> {
 		FindAndModifyOptions options = new FindAndModifyOptions();
 		options.upsert(true);
 		options.returnNew(true);
-		SequenceId seq = mongo.findAndModify(query, update, options, SequenceId.class);
+		SequenceId seq = mongoTemplate.findAndModify(query, update, options, SequenceId.class);
 		return seq.getSeqId();
 	}
 }
