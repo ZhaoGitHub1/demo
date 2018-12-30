@@ -20,6 +20,7 @@
         <module>demo-springboot-webflux</module>
         <module>demo-springboot-redis</module>
         <module>demo-springboot-mongodb</module>
+        <module>demo-springboot-shiro</module>
     </modules>
 
 </project>

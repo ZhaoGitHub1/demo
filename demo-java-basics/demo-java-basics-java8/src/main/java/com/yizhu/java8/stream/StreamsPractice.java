@@ -47,7 +47,7 @@ public class StreamsPractice {
 
         // java8 Stream实现相同功能
         List<String> firstFiveUserNames2 = users.stream()   // 转换成流
-                .filter(u->u.getAge()>18)                   // 过滤获取年龄小于18的
+                .filter(u->u.getAge()<=18)                  // 过滤获取年龄小于18的
                 .filter(u->u.getType()                      // 过滤获取用户类型为学生的
                         .contains("student"))
                 .sorted(Comparator.comparing(User::getName))// 按学生姓名排序
