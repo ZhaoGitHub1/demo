@@ -2,13 +2,22 @@ package com.yizhu.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @ApiModel
 @Entity
 @Table(name = "t_user")
+@NamedEntityGraph(name = "User.Graph", attributeNodes = {@NamedAttributeNode("roles")})
+@Data
+@Builder
+@ToString
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,104 +48,14 @@ public class User implements Serializable {
     @JoinColumn(name = "org_id", updatable = false, insertable = false)
     private Organization org;
 
-//    @ApiModelProperty(value = "用户角色")
-//    @OneToMany
-//    @JoinColumn(name = "id", updatable = false, insertable = false)
-//    private List<Role> roles;
+    @ApiModelProperty(value = "用户角色")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", updatable = false, insertable = false)
+    private List<Role> roles;
 
-    public User(){}
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", updatable = false, insertable = false)
+    private Set<User> users;
 
-    public User(String userName, String userPassword) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-    }
-
-    public User(String userName, String userPassword, Integer userSex) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userSex = userSex;
-    }
-
-    public User(String userName, String userPassword, Integer userAge, Integer userSex) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userAge = userAge;
-        this.userSex = userSex;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public Integer getUserAge() {
-        return userAge;
-    }
-
-    public void setUserAge(Integer userAge) {
-        this.userAge = userAge;
-    }
-
-    public Integer getUserSex() {
-        return userSex;
-    }
-
-    public void setUserSex(Integer userSex) {
-        this.userSex = userSex;
-    }
-
-//    public List<Role> getRoles() {
-//        return roles;
-//    }
-
-//    public void setRoles(List<Role> roles) {
-//        this.roles = roles;
-//    }
-
-    public Organization getOrg() {
-        return org;
-    }
-
-    public void setOrg(Organization org) {
-        this.org = org;
-    }
-
-    public Long getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userAge=" + userAge +
-                ", userSex=" + userSex +
-                '}';
-    }
 }
 

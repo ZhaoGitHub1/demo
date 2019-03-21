@@ -3,12 +3,14 @@ package com.yizhu.entity;
 import com.yizhu.annotation.AutoIncKey;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Api(description = "用户信息")
 @Document(collection = "user")
+@Data
 public class User {
 
     @Id
@@ -26,35 +28,4 @@ public class User {
     @Field
     private UserInfo userInfo;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getSex() {
-        return sex;
-    }
-
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
-
-    public UserInfo getUserInfo() {
-        return userInfo;
-    }
-
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
-    }
 }

@@ -2,6 +2,7 @@ package com.yizhu.repository;
 
 
 import com.yizhu .entity.User;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +17,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
      * @param id
      * @return
      */
+    @EntityGraph(value = "User.Graph", type = EntityGraph.EntityGraphType.FETCH)
     User findAllById(Long id);
 
     /**
@@ -23,6 +25,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
      * @param userName
      * @return
      */
+    @EntityGraph(value = "User.Graph", type = EntityGraph.EntityGraphType.FETCH)
     @Query(value = "select * from t_user where user_name = :userName", nativeQuery = true)
     List<User> findAllByUserName(@Param("userName") String userName);
 

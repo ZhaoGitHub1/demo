@@ -13,8 +13,8 @@ public class UserService {
     private Map<String, User> data = new ConcurrentHashMap<>();
 
     private void userInit(){
-        User user1 = new User("1","tom");
-        User user2 = new User("2","mac");
+        User user1 = User.builder().id("1").name("tom").build();
+        User user2 = User.builder().id("2").name("mac").build();
         this.data.put(user1.getId(), user1);
         this.data.put(user2.getId(), user2);
     }
