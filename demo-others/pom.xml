@@ -10,5 +10,9 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>demo-others</artifactId>
+    <packaging>pom</packaging>
     <name>demo-others</name>
+    <modules>
+        <module>demo-event</module>
+    </modules>
 </project>

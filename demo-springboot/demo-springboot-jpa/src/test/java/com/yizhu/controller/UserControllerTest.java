@@ -31,9 +31,21 @@ public class UserControllerTest {
 
     @Test
     public void saveUser() throws Exception{
-        User user1 = new User("赵六","333333",1);
-        User user2 = new User("tom","444444",1);
-        User user3 = new User("lily","555555",0);
+        User user1 = User.builder()
+                .userName("赵六")
+                .userPassword("333333")
+                .userSex(1)
+                .build();
+        User user2 = User.builder()
+                .userName("tom")
+                .userPassword("444444")
+                .userSex(1)
+                .build();
+        User user3 = User.builder()
+                .userName("lily")
+                .userPassword("555555")
+                .userSex(0)
+                .build();
         List<User> users = new ArrayList<>();
         users.add(user2);
         users.add(user3);
