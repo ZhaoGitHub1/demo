@@ -17,17 +17,17 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
      * @param id
      * @return
      */
-    @EntityGraph(value = "User.Graph", type = EntityGraph.EntityGraphType.FETCH)
+    @EntityGraph(value = "User.findUsers", type = EntityGraph.EntityGraphType.FETCH)
     User findAllById(Long id);
 
     /**
      * 根据name查询用户信息
-     * @param userName
+     * @param name
      * @return
      */
-    @EntityGraph(value = "User.Graph", type = EntityGraph.EntityGraphType.FETCH)
-    @Query(value = "select * from t_user where user_name = :userName", nativeQuery = true)
-    List<User> findAllByUserName(@Param("userName") String userName);
+    @EntityGraph(value = "User.findUsers", type = EntityGraph.EntityGraphType.FETCH)
+    @Query(value = "select * from t_user where user_name = :name", nativeQuery = true)
+    List<User> findAllByUserName(@Param("name") String name);
 
     /**
      * 查询所有用户信息
@@ -46,12 +46,17 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
 
     /**
      * 根据用户性别和所属组织名称查询用户信息
-     * @param userSex
+     * @param sex
      * @param orgName
      * @return
      */
-    @Query(value = "select u from User u left join u.org o where u.userSex = :userSex and o.orgName = :orgName")
-    List<User> findUsersBySexAndOrg(@Param("userSex") Integer userSex, @Param("orgName") String orgName);
+    @Query(value = "select u from User u left join u.org o where u.sex = :sex and o.orgName = :orgName")
+    List<User> findAllBySexAndOrgName(@Param("sex") Integer sex, @Param("orgName") String orgName);
 
+    /**
+     * 根据用户名模糊查询
+     * @return
+     */
+    List<User> findAllByNameLike(@Param("name") String name);
 }
 

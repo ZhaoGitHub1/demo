@@ -19,8 +19,8 @@ public class UserSpecs {
             List<Predicate> predicates = new ArrayList<>();
 
             Optional.ofNullable(userQueryDto.getId()).ifPresent(i -> predicates.add(builder.equal(root.get("id"), i)));
-            Optional.ofNullable(userQueryDto.getUserName()).ifPresent(n -> predicates.add(builder.equal(root.get("userName"), n)));
-            Optional.ofNullable(userQueryDto.getUserAge()).ifPresent(a -> predicates.add(builder.equal(root.get("userAge"), a)));
+            Optional.ofNullable(userQueryDto.getName()).ifPresent(n -> predicates.add(builder.equal(root.get("name"), n)));
+            Optional.ofNullable(userQueryDto.getAge()).ifPresent(a -> predicates.add(builder.equal(root.get("age"), a)));
             Optional.ofNullable(userQueryDto.getOrgId()).ifPresent(oi -> predicates.add(builder.equal(root.get("orgId"), oi)));
             Optional.ofNullable(userQueryDto.getOrgName()).ifPresent(on -> {
                 Join<User, Organization> userJoin = root.join(root.getModel().getSingularAttribute("org", Organization.class), JoinType.LEFT);

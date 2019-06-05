@@ -36,5 +36,7 @@ java相关的一些个人练习实践demo
 - demo-other
     - ~~demo-cglb：~~
     - demo-event：事件demo
-    
+
+- demo-springcloud
+    - demo-springcloud-stream：spring-cloud-stream实践
 
