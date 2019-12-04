@@ -5,7 +5,7 @@ java相关的一些个人练习实践demo
 
     - demo-java-basics-java8：java8部分新特性实践
 
-    - demo-java-basics-pattern：java实现设计模式实践
+    - demo-java-basics-pattern：java实现设计模式实践 todo
     
 - demo-springboot
 
@@ -14,6 +14,8 @@ java相关的一些个人练习实践demo
     - demo-springboot-configuration：自定义拦截器、初始化器、监听器、Runner、Banner等实践
 
     - demo-springboot-jpa：整合springboot-data-jp，swagger2实现常用的RESTful接口实践
+    
+    - demo-springboot-mybatis：mybatis的常用实践 todo
 
     - demo-springboot-quartz：定时任务实践
 
@@ -29,14 +31,9 @@ java相关的一些个人练习实践demo
 
 - demo-alibaba
 
-    - ~~demo-alibaba-nacos：阿里开源配置中心实践~~
-
-    - ~~demo-alibaba-sentinel：阿里开源高可用防护的流量管理框架实践~~
-
 - demo-other
-    - ~~demo-cglb：~~
     - demo-event：事件demo
 
 - demo-springcloud
-    - demo-springcloud-stream：spring-cloud-stream实践
+    - demo-springcloud-stream：spring-cloud-stream实践 todo
 
