@@ -28,11 +28,12 @@ java相关的一些个人练习实践demo
     - demo-springboot-mongodb：spring-data-mongdo实践，带有自定义自增主键
     
     - demo-springboot-shiro：springboot整合shiro实践
+    
+    - demo-event：springboot下spring容器内事件使用demo
 
 - demo-alibaba
 
 - demo-other
-    - demo-event：事件demo
 
 - demo-springcloud
     - demo-springcloud-stream：spring-cloud-stream实践 todo
