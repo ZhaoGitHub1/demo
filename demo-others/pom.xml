@@ -17,7 +17,4 @@
     <packaging>pom</packaging>
     <name>demo-others</name>
 
-    <modules>
-        <module>demo-event</module>
-    </modules>
 </project>
