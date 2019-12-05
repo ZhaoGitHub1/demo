@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yizhu.dao.UserRepository">
+
+    <insert id="saveAll" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(user_name, user_password, user_age, user_sex, org_id)
+        values
+        <foreach collection="users" index="index" item="user" separator=",">
+            (
+                #{user.name},
+                #{user.password},
+                #{user.age},
+                #{user.sex},
+                #{user.orgId}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(
+            user_name,
+            user_password,
+            user_age,
+            user_sex,
+            org_id
+        )
+        values
+        (
+            #{user.name},
+            #{user.password},
+            #{user.age},
+            #{user.sex},
+            #{user.orgId}
+        )
+    </insert>
+
+    <select id="findAllByUserName" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where user_name=#{userName}
+    </select>
+
+    <select id="findAllById" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where id=#{id}
+    </select>
+
+    <select id="findAll" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+    </select>
+
+    <select id="findAllByAge" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where user_age=#{age}
+    </select>
+
+    <select id="findAllBySexAndOrgName" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where user_sex=#{userSex}
+        and user_name=#{userName}
+    </select>
+
+    <select id="findUsersDynamic" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where 1=1
+        <if test="userQueryDto.id != null and userQueryDto.id != ''">
+            and id = #{userQueryDto.id}
+        </if>
+        <if test="userQueryDto.name != null and userQueryDto.name != ''">
+            and id = #{userQueryDto.name}
+        </if>
+        <if test="userQueryDto.password != null and userQueryDto.password != ''">
+            and id = #{userQueryDto.password}
+        </if>
+        <if test="userQueryDto.age != null and userQueryDto.age != ''">
+            and id = #{userQueryDto.age}
+        </if>
+        <if test="userQueryDto.sex != null and userQueryDto.sex != ''">
+            and id = #{userQueryDto.sex}
+        </if>
+        <if test="userQueryDto.orgId != null and userQueryDto.orgId != ''">
+            and id = #{userQueryDto.orgId}
+        </if>
+    </select>
+
+    <select id="findUsersByPage" resultType="com.yizhu.entity.User">
+        select id, user_name, user_password, user_age, user_sex, org_id
+        from t_user
+        where 1=1
+        <if test="userQueryByPageDTO.id != null and userQueryByPageDTO.id != ''">
+            and id = #{userQueryByPageDTO.id}
+        </if>
+        <if test="userQueryByPageDTO.name != null and userQueryByPageDTO.name != ''">
+            and id = #{userQueryByPageDTO.name}
+        </if>
+        <if test="userQueryByPageDTO.password != null and userQueryByPageDTO.password != ''">
+            and id = #{userQueryByPageDTO.password}
+        </if>
+        <if test="userQueryByPageDTO.age != null and userQueryByPageDTO.age != ''">
+            and id = #{userQueryByPageDTO.age}
+        </if>
+        <if test="userQueryByPageDTO.sex != null and userQueryByPageDTO.sex != ''">
+            and id = #{userQueryByPageDTO.sex}
+        </if>
+        <if test="userQueryByPageDTO.orgId != null and userQueryByPageDTO.orgId != ''">
+            and id = #{userQueryByPageDTO.orgId}
+        </if>
+        order by update_time desc
+    </select>
+</mapper>
