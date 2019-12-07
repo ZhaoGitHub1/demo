@@ -63,9 +63,9 @@ public class UserController {
     }
 
     @ApiOperation("根据用户性别和组织名称查询用户")
-    @GetMapping("/getUsersBySexAndOrg")
-    public List<User> getUsersBySexAndOrg(@RequestParam("sex") Integer sex, @RequestParam("name") String name){
-        return userService.findUsersBySexAndOrg(sex, name);
+    @GetMapping("/getUsersBySexAndName")
+    public List<User> getUsersBySexAndName(@RequestParam("sex") Integer sex, @RequestParam("name") String name){
+        return userService.findUsersBySexAndName(sex, name);
     }
 
     @ApiOperation("动态查询用户信息")

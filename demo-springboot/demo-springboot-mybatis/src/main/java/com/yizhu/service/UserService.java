@@ -40,8 +40,8 @@ public class UserService {
         return userRepository.findAllByAge(age);
     }
 
-    public List<User> findUsersBySexAndOrg(Integer userSex, String orgName){
-        return userRepository.findAllBySexAndOrgName(userSex, orgName);
+    public List<User> findUsersBySexAndName(Integer userSex, String name){
+        return userRepository.findAllBySexAndName(userSex, name);
     }
 
     public List<User> findUsersDynamic(UserQueryDTO userQueryDto){

@@ -19,16 +19,16 @@ public class UserQueryDTO implements Serializable {
     private Long id;
 
     @ApiModelProperty(value = "用户名")
-    private String name;
+    private String userName;
 
     @ApiModelProperty(value = "用户密码")
-    private String password;
+    private String userPassword;
 
     @ApiModelProperty(value = "用户年龄")
-    private Integer age;
+    private Integer userAge;
 
     @ApiModelProperty(value = "用户性别")
-    private Integer sex;
+    private Integer userSex;
 
     @ApiModelProperty(value = "所属组织id")
     private Long orgId;

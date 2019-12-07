@@ -7,10 +7,10 @@
         values
         <foreach collection="users" index="index" item="user" separator=",">
             (
-                #{user.name},
-                #{user.password},
-                #{user.age},
-                #{user.sex},
+                #{user.userName},
+                #{user.userPassword},
+                #{user.userAge},
+                #{user.userSex},
                 #{user.orgId}
             )
         </foreach>
@@ -26,10 +26,10 @@
         )
         values
         (
-            #{user.name},
-            #{user.password},
-            #{user.age},
-            #{user.sex},
+            #{user.userName},
+            #{user.userPassword},
+            #{user.userAge},
+            #{user.userSex},
             #{user.orgId}
         )
     </insert>
@@ -54,10 +54,10 @@
     <select id="findAllByAge" resultType="com.yizhu.entity.User">
         select id, user_name, user_password, user_age, user_sex, org_id
         from t_user
-        where user_age=#{age}
+        where user_age=#{userAge}
     </select>
 
-    <select id="findAllBySexAndOrgName" resultType="com.yizhu.entity.User">
+    <select id="findAllBySexAndName" resultType="com.yizhu.entity.User">
         select id, user_name, user_password, user_age, user_sex, org_id
         from t_user
         where user_sex=#{userSex}
@@ -71,20 +71,20 @@
         <if test="userQueryDto.id != null and userQueryDto.id != ''">
             and id = #{userQueryDto.id}
         </if>
-        <if test="userQueryDto.name != null and userQueryDto.name != ''">
-            and id = #{userQueryDto.name}
+        <if test="userQueryDto.userName != null and userQueryDto.userName != ''">
+            and user_name = #{userQueryDto.userName}
         </if>
-        <if test="userQueryDto.password != null and userQueryDto.password != ''">
-            and id = #{userQueryDto.password}
+        <if test="userQueryDto.userPassword != null and userQueryDto.userPassword != ''">
+            and user_password = #{userQueryDto.userPassword}
         </if>
-        <if test="userQueryDto.age != null and userQueryDto.age != ''">
-            and id = #{userQueryDto.age}
+        <if test="userQueryDto.userAge != null and userQueryDto.userAge != ''">
+            and user_age = #{userQueryDto.userAge}
         </if>
-        <if test="userQueryDto.sex != null and userQueryDto.sex != ''">
-            and id = #{userQueryDto.sex}
+        <if test="userQueryDto.userSex != null and userQueryDto.userSex != ''">
+            and user_sex = #{userQueryDto.userSex}
         </if>
         <if test="userQueryDto.orgId != null and userQueryDto.orgId != ''">
-            and id = #{userQueryDto.orgId}
+            and org_id = #{userQueryDto.orgId}
         </if>
     </select>
 
@@ -95,20 +95,20 @@
         <if test="userQueryByPageDTO.id != null and userQueryByPageDTO.id != ''">
             and id = #{userQueryByPageDTO.id}
         </if>
-        <if test="userQueryByPageDTO.name != null and userQueryByPageDTO.name != ''">
-            and id = #{userQueryByPageDTO.name}
+        <if test="userQueryByPageDTO.userName != null and userQueryByPageDTO.userName != ''">
+            and user_name = #{userQueryByPageDTO.userName}
         </if>
-        <if test="userQueryByPageDTO.password != null and userQueryByPageDTO.password != ''">
-            and id = #{userQueryByPageDTO.password}
+        <if test="userQueryByPageDTO.userPassword != null and userQueryByPageDTO.userPassword != ''">
+            and user_password = #{userQueryByPageDTO.userPassword}
         </if>
-        <if test="userQueryByPageDTO.age != null and userQueryByPageDTO.age != ''">
-            and id = #{userQueryByPageDTO.age}
+        <if test="userQueryByPageDTO.userAge != null and userQueryByPageDTO.userAge != ''">
+            and user_age = #{userQueryByPageDTO.userAge}
         </if>
-        <if test="userQueryByPageDTO.sex != null and userQueryByPageDTO.sex != ''">
-            and id = #{userQueryByPageDTO.sex}
+        <if test="userQueryByPageDTO.userSex != null and userQueryByPageDTO.userSex != ''">
+            and user_sex = #{userQueryByPageDTO.userSex}
         </if>
         <if test="userQueryByPageDTO.orgId != null and userQueryByPageDTO.orgId != ''">
-            and id = #{userQueryByPageDTO.orgId}
+            and org_id = #{userQueryByPageDTO.orgId}
         </if>
         order by update_time desc
     </select>
