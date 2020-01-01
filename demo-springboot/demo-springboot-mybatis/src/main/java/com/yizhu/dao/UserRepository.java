@@ -2,6 +2,7 @@ package com.yizhu.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yizhu.dto.UserInfoDTO;
 import com.yizhu.dto.UserQueryByPageDTO;
 import com.yizhu.dto.UserQueryDTO;
 import com.yizhu.entity.User;
@@ -13,11 +14,6 @@ import java.util.List;
 @Mapper
 public interface UserRepository extends BaseMapper<User> {
 
-    /**
-     * 根据用户名称查询所有用户
-     * @param userName
-     * @return
-     */
     List<User> findAllByUserName(String userName);
 
     User findAllById(Long id);
@@ -28,11 +24,11 @@ public interface UserRepository extends BaseMapper<User> {
 
     List<User> findAll();
 
-    List<User> findAllByAge(Integer age);
-
     List<User> findAllBySexAndName(Integer userSex, String userName);
 
     List<User> findUsersDynamic(@Param("userQueryDto") UserQueryDTO userQueryDto);
 
     Page<User> findUsersByPage(Page page, @Param("userQueryByPageDTO") UserQueryByPageDTO userQueryByPageDTO);
+
+    List<UserInfoDTO> findUserInfoByUserId(@Param("userId") Long userId);
 }

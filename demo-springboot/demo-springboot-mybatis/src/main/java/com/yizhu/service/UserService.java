@@ -2,6 +2,7 @@ package com.yizhu.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yizhu.dao.UserRepository;
+import com.yizhu.dto.UserInfoDTO;
 import com.yizhu.dto.UserQueryByPageDTO;
 import com.yizhu.dto.UserQueryDTO;
 import com.yizhu.entity.User;
@@ -36,10 +37,6 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> findAllByAge(Integer age){
-        return userRepository.findAllByAge(age);
-    }
-
     public List<User> findUsersBySexAndName(Integer userSex, String name){
         return userRepository.findAllBySexAndName(userSex, name);
     }
@@ -51,6 +48,10 @@ public class UserService {
     public Page<User> findUsersByPage(UserQueryByPageDTO userQueryByPageDTO) {
         Page page = new Page(userQueryByPageDTO.getPageNo(), userQueryByPageDTO.getPageSize());
         return userRepository.findUsersByPage(page, userQueryByPageDTO);
+    }
+
+    public List<UserInfoDTO> findUserInfoByUserId(Long userId) {
+        return userRepository.findUserInfoByUserId(userId);
     }
 }
 

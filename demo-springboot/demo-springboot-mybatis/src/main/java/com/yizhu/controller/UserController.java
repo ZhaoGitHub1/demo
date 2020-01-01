@@ -1,6 +1,7 @@
 package com.yizhu.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yizhu.dto.UserInfoDTO;
 import com.yizhu.dto.UserQueryByPageDTO;
 import com.yizhu.dto.UserQueryDTO;
 import com.yizhu.entity.User;
@@ -44,12 +45,6 @@ public class UserController {
         return userService.findAll();
     }
 
-    @ApiOperation("通过年龄查询用户信息")
-    @GetMapping("/getUsersByAge")
-    public List<User> getUsersByAge(@RequestParam(value = "age") Integer age){
-        return userService.findAllByAge(age);
-    }
-
     @ApiOperation("添加多个用户")
     @PostMapping("/saveAllUsers")
     public String saveAllUsers(@RequestBody List<User> users){
@@ -78,5 +73,11 @@ public class UserController {
     @PostMapping("/getUsersByPage")
     public Page<User> getUsersByPage(@RequestBody UserQueryByPageDTO userQueryByPageDTO){
         return userService.findUsersByPage(userQueryByPageDTO);
+    }
+
+    @ApiOperation("根据用户id查询用户")
+    @GetMapping("/getUserInfoByUserId")
+    public List<UserInfoDTO> getUserInfoByUserId(@RequestParam("userId") Long userId){
+        return userService.findUserInfoByUserId(userId);
     }
 }
