@@ -2,6 +2,7 @@ package com.yizhu.java8.localdate;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -27,7 +28,34 @@ public class LocalDatePractice {
 
         format(now);
 
+        string();
+
+        compare();
+
         others(now);
+    }
+
+    /**
+     * 比较
+     */
+    private static void compare() {
+        final LocalDateTime now = LocalDateTime.now();
+        final LocalDateTime oneDayAfter = now.plusDays(1);
+
+        System.out.println(now+"在"+oneDayAfter+"之前吗：" + now.isBefore(oneDayAfter));
+        System.out.println(oneDayAfter+"在"+now+"之后吗：" + oneDayAfter.isAfter(now));
+        System.out.println(now+"和"+now+"相等吗：" + now.equals(now));
+    }
+
+    /**
+     * string相关
+     */
+    private static void string() {
+        System.out.println("2020-01-03 20:30:00转换为LocalDateTime：" + LocalDateTime.parse("2020-01-03T20:30:00"));
+
+        System.out.println("2020-01-03转换为LocalDate：" + LocalDate.parse("2020-01-03"));
+
+        System.out.println("20:30:00转换为LocalTime：" + LocalTime.parse("20:30:00"));
     }
 
     /**
@@ -41,6 +69,21 @@ public class LocalDatePractice {
 
         System.out.println("当前时分秒：" + LocalTime.now());
         System.out.println("当前时分秒：" + LocalTime.now(Clock.systemDefaultZone()));
+
+        System.out.println("今年是这个纪元第几年：" + LocalDateTime.now().get(ChronoField.YEAR_OF_ERA));
+        System.out.println("今天是今年第几天：" + LocalDateTime.now().get(ChronoField.DAY_OF_YEAR));
+        System.out.println("今天是今年第几天：" + LocalDateTime.now().getDayOfYear());
+        System.out.println("今天是这个月第几天：" + LocalDateTime.now().get(ChronoField.DAY_OF_MONTH));
+        System.out.println("今天是这个月第几天：" + LocalDateTime.now().getDayOfMonth());
+        System.out.println("今天是这周第几天：" + LocalDateTime.now().get(ChronoField.DAY_OF_WEEK));
+        System.out.println("今天是这周第几天：" + LocalDateTime.now().getDayOfWeek());
+        System.out.println("获取月份：" + LocalDateTime.now().getMonth());
+        System.out.println("获取月份：" + LocalDateTime.now().getMonthValue());
+        System.out.println("获取小时：" + LocalDateTime.now().getHour());
+        System.out.println("获取分钟：" + LocalDateTime.now().getMinute());
+        System.out.println("获取秒：" + LocalDateTime.now().getSecond());
+        System.out.println("获取纳秒：" + LocalDateTime.now().getNano());
+
     }
 
     /**
@@ -61,7 +104,8 @@ public class LocalDatePractice {
 
         System.out.println("今年是否为闰年：" + LocalDate.now().isLeapYear());
 
-        System.out.println("整段代码消耗的时间：" + Duration.between(start, Instant.now()).getNano() + "ms");
+        System.out.println("others方法消耗的时间：" + Duration.between(start, Instant.now()).getNano() + "ms");
+
     }
 
     /**
