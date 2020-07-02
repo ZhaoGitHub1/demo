@@ -37,7 +37,7 @@
         <swagger.version>2.9.2</swagger.version>
         <mongodb.version>3.8.2</mongodb.version>
         <shiro.version>1.4.0</shiro.version>
-        <mysql.version>5.1.39</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <druid.version>1.0.28</druid.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
     </properties>
